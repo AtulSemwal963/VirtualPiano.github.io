@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="piano.css">
+</head>
+<body>
+    <div id="title">
+        <div class="logo"><span id="virtual">Virtual</span> 
+        <span>P</span>
+        <span>i</span>
+        <span>a</span>
+        <span>n</span>
+        <span>o</span>
+    </div>
+    <div class="customize">
+        <img src="setting.png" id="settingIcon"style="height:2vw;width:2vw;transition:transform 0.5s ease;" onclick="openMenu()">
+        <button id="customize_button" onclick="openMenu()">Customize</button></div>
+    </div>
+    <div id="customize_menu">
+        <div id="body_color">
+            <div class="body_theme">Body Theme</div>
+            <button class="bodyColorButtons" id="bcolor1" onclick="bodyColor(1)">Silver Frost</button><button class="bodyColorButtons" id="bcolor2" onclick="bodyColor(2)">Black Noir</button><button class="bodyColorButtons" id="bcolor3" onclick="bodyColor(3)">Enchanted Orchid</button><button class="bodyColorButtons" id="bcolor4" onclick="bodyColor(4)">Serene Snow</button><button class="bodyColorButtons" id="bcolor5" onclick="bodyColor(5)">Prowler Purple</button><button class="bodyColorButtons" id="bcolor6" onclick="bodyColor(6)">Shadow Blue</button>
+        </div>
+        <div id="screen_color">
+            <siv class="screen_color_title">Display Color</siv>
+            <button class="screenColorButtons" id="scColor1" onclick="screenColor(1)">Blue</button><button class="screenColorButtons" id="scColor2" onclick="screenColor(2)">Green</button><button class="screenColorButtons" id="scColor3" onclick="screenColor(3)">Orange</button><button class="screenColorButtons" id="scColor4" onclick="screenColor(4)">Yellow</button>
+        </div>
+        <div id="bg_color">
+            <div class="bg_theme">Background Theme</div>
+            <button class="bgColorButtons" id="bgcolor1"
+            onclick="backgroundColor(1)">Silver Frost</button><button class="bgColorButtons" id="bgcolor2"  onclick="backgroundColor(2)">Black Noir</button><button class="bgColorButtons" id="bgcolor3" onclick="backgroundColor(3)">Enchanted Orchid</button><button class="bgColorButtons" id="bgcolor4" onclick="backgroundColor(4)">Serene Snow</button><button class="bgColorButtons" id="bgcolor5" onclick="backgroundColor(5)">Prowler Purple</button><button class="bgColorButtons" id="bgcolor6" onclick="backgroundColor(6)">Shadow Blue</button>
+        </div>
+    </div>
+    <div id="main_piano_box">
+    <div id="top_portion">
+        <div id="speaker_left" class="speaker"></div>
+        <div class="line_box" >
+            <div class="lines"></div>
+            <div class="lines"></div>
+            <div class="lines"></div>
+        </div>
+        <div id="meter">
+           <div class="meter_left">
+            <div class="meter_lines"></div>
+            <div class="meter_lines"></div>
+            <div class="meter_lines"></div>
+            <div class="meter_lines"></div>
+            <div class="meter_lines"></div>
+            <div class="meter_lines"></div>
+            <div class="meter_lines"></div>
+            <div class="meter_lines"></div>
+            <div class="meter_lines"></div>
+            <div class="meter_lines"></div>
+           </div>
+           <div class="meter_right">
+            <div class="meter_note"><div id="note"></div></div>
+           </div>
+        </div>
+        <div class="line_box" >
+            <div class="lines"></div>
+            <div class="lines"></div>
+            <div class="lines"></div>
+        </div>
+        <div id="speaker_right" class="speaker"></div>
+        <div class="bottom_line"></div>
+    </div>
+    <div id="key_box">
+        <div id="guard_left" class="guard"></div>
+        <button class="white_key" id="key1" onclick="play(1)" >1</button>
+        <button class="white_key" id="key2" onclick="play(2)" >3</button>
+        <button class="white_key" id="key3" onclick="play(3)" >5</button>
+        <button class="white_key" id="key4" onclick="play(4)" >7</button>
+        <button class="white_key" id="key5" onclick="play(5)" >8</button>
+        <button class="white_key" id="key6" onclick="play(6)" >0</button>
+        <button class="white_key" id="key7" onclick="play(7)" >+=</button>
+        <button class="white_key" id="key8" onclick="play(8)" >q</button>
+        <button class="white_key" id="key9" onclick="play(9)" >e</button>
+        <button class="white_key" id="key10" onclick="play(10)" >t</button>
+        <button class="white_key" id="key11" onclick="play(11)" >u</button>
+        <button class="white_key" id="key12" onclick="play(12)" >i</button>
+        <button class="white_key" id="key13" onclick="play(13)" >p</button>
+        <button class="white_key" id="key14" onclick="play(14)" >}]</button>
+        <button class="white_key" id="key15" onclick="play(15)" >a</button>
+        <button class="white_key" id="key16" onclick="play(16)" >d</button>
+        <button class="white_key" id="key17" onclick="play(17)" >g</button>
+        <button class="white_key" id="key18" onclick="play(18)" >j</button>
+        <button class="white_key" id="key19" onclick="play(19)" >k</button>
+        <button class="white_key" id="key20" onclick="play(20)" >:;</button>
+        <button class="white_key" id="key21" onclick="play(21)" >z</button>
+        <button class="white_key" id="key22" onclick="play(22)" >x</button>
+        <button class="white_key" id="key23" onclick="play(23)" >v</button>
+        <button class="white_key" id="key24" onclick="play(24)" >n</button>
+        <button class="white_key" id="key25" onclick="play(25)" >,<</button>
+        <button class="white_key" id="key26" onclick="play(26)" >.></button>
+        <div id="guard_right" class="guard"></div>
+        <button class="black_key1" id="b_key1" onclick="play(27)">2</button>
+        <button class="black_key2" id="b_key2" onclick="play(28)">4</button>
+        <button class="black_key3" id="b_key3" onclick="play(29)">6</button>
+        <button class="black_key4" id="b_key4" onclick="play(30)">9</button>
+        <button class="black_key5" id="b_key5" onclick="play(31)">-_</button>
+        <button class="black_key6" id="b_key6" onclick="play(32)">w</button>
+        <button class="black_key7" id="b_key7" onclick="play(33)">r</button>
+        <button class="black_key8" id="b_key8" onclick="play(34)">y</button>
+        <button class="black_key9" id="b_key9" onclick="play(35)">o</button>
+        <button class="black_key10" id="b_key10" onclick="play(36)">[{</button>
+        <button class="black_key11" id="b_key11" onclick="play(37)">s</button>
+        <button class="black_key12" id="b_key12" onclick="play(38)">f</button>
+        <button class="black_key13" id="b_key13" onclick="play(39)">h</button>
+        <button class="black_key14" id="b_key14" onclick="play(40)">l</button>
+        <button class="black_key15" id="b_key15" onclick="play(41)">' "</button>
+        <button class="black_key16" id="b_key16" onclick="play(42)">c</button>
+        <button class="black_key17" id="b_key17" onclick="play(43)">b</button>
+        <button class="black_key18" id="b_key18" onclick="play(44)">m</button>
+    </div>
+    </div>
+    <div class="blockScreen">Please put your device on landscape mode <br>to proceed.</div>
+</body>
+<script>
+    
+    document.addEventListener('keydown', function(event) {
+        if (event.key === "1") {
+    var pianoNote = new Audio("audio/key1.mp3");
+    pianoNote.play();
+    note.innerHTML='F';
+  }
+  if (event.key === "2") {
+    var pianoNote = new Audio("audio/bkey1.mp3");
+    pianoNote.play();
+    note.innerHTML='F#';
+  }
+  if (event.key === "3") {
+    var pianoNote = new Audio("audio/key2.mp3");
+    pianoNote.play();
+    note.innerHTML='G';
+  }
+  if (event.key === "4") {
+    var pianoNote = new Audio("audio/bkey2.mp3");
+    pianoNote.play();
+    note.innerHTML='G#';
+  }
+  if (event.key === "5") {
+    var pianoNote = new Audio("audio/key3.mp3");
+    pianoNote.play();
+    note.innerHTML='A';
+  }
+  if (event.key === "6") {
+    var pianoNote = new Audio("audio/bkey3.mp3");
+    pianoNote.play();
+    note.innerHTML='A#';
+  }
+  if (event.key === "7") {
+    var pianoNote = new Audio("audio/key4.mp3");
+    pianoNote.play();
+    note.innerHTML='B';
+  }
+  if (event.key === "8") {
+    var pianoNote = new Audio("audio/key5.mp3");
+    pianoNote.play();
+    note.innerHTML='C';
+  }
+  if (event.key === "9") {
+    var pianoNote = new Audio("audio/bkey4.mp3");
+    pianoNote.play();
+    note.innerHTML='C#';
+  }
+  if (event.key === "0") {
+    var pianoNote = new Audio("audio/key6.mp3");
+    pianoNote.play();
+    note.innerHTML='D';
+  }
+  if (event.key === "-" || event.key==='_') {
+    var pianoNote = new Audio("audio/bkey5.mp3");
+    pianoNote.play();
+    note.innerHTML='D#';
+  }
+  if (event.key === "+" || event.key==='=') {
+    var pianoNote = new Audio("audio/key7.mp3");
+    pianoNote.play();
+    note.innerHTML='E';
+  }
+  if (event.key === "q" || event.key === "Q") {
+    var pianoNote = new Audio("audio/key8.mp3");
+    pianoNote.play();
+    note.innerHTML='F';
+  }
+  if (event.key === "w" ||event.key === "W") {
+    var pianoNote = new Audio("audio/bkey6.mp3");
+    pianoNote.play();
+    note.innerHTML='F#';1
+  }
+  if (event.key === "e"||event.key === "E") {
+    var pianoNote = new Audio("audio/key9.mp3");
+    pianoNote.play();
+    note.innerHTML='G';
+  }
+  if (event.key === "r" ||event.key === "R") {
+    var pianoNote = new Audio("audio/bkey7.mp3");
+    pianoNote.play();
+    note.innerHTML='G#';
+  }
+  if (event.key === "t" ||event.key === "t") {
+    var pianoNote = new Audio("audio/key10.mp3");
+    pianoNote.play();
+    note.innerHTML='A';
+  }
+  if (event.key === "y" ||event.key === "Y") {
+    var pianoNote = new Audio("audio/bkey8.mp3");
+    pianoNote.play();
+    note.innerHTML='A#';
+  }
+  if (event.key === "u" ||event.key === "U") {
+    var pianoNote = new Audio("audio/key11.mp3");
+    pianoNote.play();
+    note.innerHTML='B';
+  }
+  if (event.key === "i" ||event.key === "I") {
+    var pianoNote = new Audio("audio/key12.mp3");
+    pianoNote.play();
+    note.innerHTML='C';
+  }
+  if (event.key === "o" ||event.key === "O") {
+    var pianoNote = new Audio("audio/bkey9.mp3");
+    pianoNote.play();
+    note.innerHTML='C#';
+  }
+  if (event.key === "p" ||event.key === "P") {
+    var pianoNote = new Audio("audio/key13.mp3");
+    pianoNote.play();
+    note.innerHTML='D';
+  }
+  if (event.key === "[" || event.key==='{') {
+    var pianoNote = new Audio("audio/bkey10.mp3");
+    pianoNote.play();
+    note.innerHTML='D#';
+  }
+  if (event.key === "}" || event.key===']') {
+    var pianoNote = new Audio("audio/key14.mp3");
+    pianoNote.play();
+    note.innerHTML='E';
+  }
+  if (event.key === "a" ||event.key === "A") {
+    var pianoNote = new Audio("audio/key15.mp3");
+    pianoNote.play();
+    note.innerHTML='F';
+  }
+  if (event.key === "s" ||event.key === "S") {
+    var pianoNote = new Audio("audio/bkey11.mp3");
+    pianoNote.play();
+    note.innerHTML='F#';
+  }
+  if (event.key === "d" ||event.key === "D") {
+    var pianoNote = new Audio("audio/key16.mp3");
+    pianoNote.play();
+    note.innerHTML='G';
+  }
+  if (event.key === "f" ||event.key === "F") {
+    var pianoNote = new Audio("audio/bkey12.mp3");
+    pianoNote.play();
+    note.innerHTML='G#';
+  }
+  if (event.key === "g" ||event.key === "G") {
+    var pianoNote = new Audio("audio/key17.mp3");
+    pianoNote.play();
+    note.innerHTML='A';
+  }
+  if (event.key === "h" ||event.key === "H") {
+    var pianoNote = new Audio("audio/bkey13.mp3");
+    pianoNote.play();
+    note.innerHTML='A#';
+  }
+  if (event.key === "j" ||event.key === "J") {
+    var pianoNote = new Audio("audio/key18.mp3");
+    pianoNote.play();
+    note.innerHTML='B';
+  }
+  if (event.key === "k" ||event.key === "K") {
+    var pianoNote = new Audio("audio/key19.mp3");
+    pianoNote.play();
+    note.innerHTML='C';
+  }
+  if (event.key === "l" ||event.key === "L") {
+    var pianoNote = new Audio("audio/bkey14.mp3");
+    pianoNote.play();
+    note.innerHTML='C#';
+  }
+  if (event.key === ";" || event.key===':') {
+    var pianoNote = new Audio("audio/key20.mp3");
+    pianoNote.play();
+    note.innerHTML='D';
+  }
+  if (event.key === "'" || event.key==='"') {
+    var pianoNote = new Audio("audio/bkey15.mp3");
+    pianoNote.play();
+    note.innerHTML='D#';
+  }
+  if (event.key === "z" ||event.key === "Z") {
+    var pianoNote = new Audio("audio/key21.mp3");
+    pianoNote.play();
+    note.innerHTML='E';
+  }
+  if (event.key === "x" ||event.key === "X") {
+    var pianoNote = new Audio("audio/key22.mp3");
+    pianoNote.play();
+    note.innerHTML='F';
+  }
+  if (event.key === "c" ||event.key === "C") {
+    var pianoNote = new Audio("audio/bkey16.mp3");
+    pianoNote.play();
+    note.innerHTML='F#';
+  }
+  if (event.key === "v" ||event.key === "V") {
+    var pianoNote = new Audio("audio/key23.mp3");
+    pianoNote.play();
+    note.innerHTML='G';
+  }
+  if (event.key === "b" ||event.key === "B") {
+    var pianoNote = new Audio("audio/bkey17.mp3");
+    pianoNote.play();
+    note.innerHTML='G#';
+  }
+  if (event.key === "n" ||event.key === "N") {
+    var pianoNote = new Audio("audio/key24.mp3");
+    pianoNote.play();
+    note.innerHTML='A';
+  }
+  if (event.key === "m" ||event.key === "M") {
+    var pianoNote = new Audio("audio/bkey18.mp3");
+    pianoNote.play();
+    note.innerHTML='A#';
+  }
+  if (event.key === "," || event.key==='<') {
+    var pianoNote = new Audio("audio/key25.mp3");
+    pianoNote.play();
+    note.innerHTML='B';
+  }
+  if (event.key === "." || event.key==='>') {
+    var pianoNote = new Audio("audio/key26.mp3");
+    pianoNote.play();
+    note.innerHTML='C';
+  }
+});
+    customize_menu.style.display='none';
+    let openMenu=()=>{
+        if(settingIcon.style.transform!='rotate(90deg)')
+        {
+            settingIcon.style.transform='rotate(90deg)';
+            main_piano_box.style.transform = 'scale(0.4)';
+            main_piano_box.style.marginTop='-8vw';
+            customize_menu.style.display='flex';
+            customize_menu.style.visibility='visible';
+            setTimeout(()=>
+            {body_color.style.display='flex';
+            screen_color.style.display='flex';
+            bg_color.style.display='grid';
+        },500)
+        }
+        else if((settingIcon.style.transform='rotate(90deg)')){
+            settingIcon.style.transform='rotate(0deg)';
+            main_piano_box.style.transform = 'scale(1) perspective(900px) rotateX(20deg)';
+            main_piano_box.style.marginTop='0vw';
+            customize_menu.style.display='none';
+            customize_menu.style.visibility='none';
+        }
+    }
+    let bgVariable;
+    let backgroundColor=(bgVariable)=>
+    {
+        switch(bgVariable)
+        {
+            case 1:document.body.style.backgroundColor='rgb(138, 135, 135)';
+            bgcolor1.style.color='rgb(138, 135, 135)';
+            bgcolor2.style.color='black';
+            bgcolor3.style.color='black';
+            bgcolor4.style.color='black';
+            bgcolor5.style.color='black';
+            bgcolor6.style.color='black';break;
+            case 2:document.body.style.backgroundColor='rgb(24, 19, 19)';
+            bgcolor1.style.color='black';
+            bgcolor2.style.color='rgb(24, 19, 19)';
+            bgcolor3.style.color='black';
+            bgcolor4.style.color='black';
+            bgcolor5.style.color='black';
+            bgcolor6.style.color='black';break;
+            case 3:document.body.style.backgroundColor='rgb(88, 2, 2)';
+            bgcolor1.style.color='black';
+            bgcolor2.style.color='black';
+            bgcolor3.style.color='rgb(88, 2, 2)';
+            bgcolor4.style.color='black';
+            bgcolor5.style.color='black';
+            bgcolor6.style.color='black';break;
+            case 4:document.body.style.backgroundColor='rgb(214, 211, 211)';
+            bgcolor1.style.color='black';
+            bgcolor2.style.color='black';
+            bgcolor3.style.color='black';
+            bgcolor4.style.color='rgb(214, 211, 211)';
+            bgcolor5.style.color='black';
+            bgcolor6.style.color='black';break;
+            case 5:document.body.style.backgroundColor='rgb(31, 2, 31)';
+            bgcolor1.style.color='black';
+            bgcolor2.style.color='black';
+            bgcolor3.style.color='black';
+            bgcolor4.style.color='black';
+            bgcolor5.style.color='rgb(31, 2, 31)';
+            bgcolor6.style.color='black';break;
+            case 6:document.body.style.backgroundColor='rgb(4, 4, 32)';
+            bgcolor1.style.color='black';
+            bgcolor2.style.color='black';
+            bgcolor3.style.color='black';
+            bgcolor4.style.color='black';
+            bgcolor5.style.color='black';
+            bgcolor6.style.color='rgb(4, 4, 32)';
+            break;
+        }
+    }
+
+    let screenVariable;
+    let screenColor=(screenVariable)=>
+    {
+        switch(screenVariable)
+        {
+            case 1:meter.style.backgroundColor='aqua';title.style.boxShadow='0.6vw 0.6vw 2vw aqua';
+            virtual.style.WebkitTextStroke='1px aqua';
+            customize_button.style.WebkitTextStroke='1px aqua';
+            scColor1.style.color='aqua';
+            scColor2.style.color='black';
+            scColor3.style.color='black';
+            scColor4.style.color='black';
+            break;
+            case 2:meter.style.backgroundColor='rgb(30, 253, 0)';title.style.boxShadow='0.6vw 0.6vw 2vw rgb(30, 253, 0)';
+            virtual.style.WebkitTextStroke='1px rgb(30, 253, 0)';
+            customize_button.style.WebkitTextStroke='1px rgb(30, 253, 0)';
+            scColor1.style.color='black';
+            scColor2.style.color='rgb(30, 253, 0)';
+            scColor3.style.color='black';
+            scColor4.style.color='black';
+            break;
+            case 3:meter.style.backgroundColor='rgb(252, 59, 0)';title.style.boxShadow='0.6vw 0.6vw 2vw rgb(252, 59, 0)';
+            virtual.style.WebkitTextStroke='1px rgb(252, 59, 0)';
+            customize_button.style.WebkitTextStroke='1px rgb(252, 59, 0)';
+            scColor1.style.color='black';
+            scColor2.style.color='black';
+            scColor3.style.color='rgb(252, 59, 0)';
+            scColor4.style.color='black';
+            break;
+            case 4:meter.style.backgroundColor='yellow';
+            title.style.boxShadow='0.6vw 0.6vw 2vw yellow';
+            virtual.style.WebkitTextStroke='1px yellow';
+            customize_button.style.WebkitTextStroke='1px yellow';
+            scColor1.style.color='black';
+            scColor2.style.color='black';
+            scColor3.style.color='black';
+            scColor4.style.color='yellow';
+            break;
+        }
+    }
+
+    let bodyVariable;
+    let bodyColor=(bodyVariable)=>
+    {
+        switch(bodyVariable)
+        {
+            case 1:top_portion.style.backgroundColor='rgb(138, 135, 135)';title.style.backgroundColor="rgb(138, 135, 135)";
+            guard_left.style.backgroundColor='rgb(138, 135, 135)';guard_right.style.backgroundColor='rgb(138, 135, 135)';
+            bcolor1.style.color='rgb(138, 135, 135)';
+            bcolor2.style.color='black';
+            bcolor3.style.color='black';
+            bcolor4.style.color='black';
+            bcolor5.style.color='black';
+            bcolor6.style.color='black';break;
+            case 2:top_portion.style.backgroundColor='rgb(24, 19, 19)';title.style.backgroundColor="rgb(24, 19, 19)";guard_left.style.backgroundColor='rgb(24, 19, 19)';guard_right.style.backgroundColor='rgb(24, 19, 19)';
+            bcolor1.style.color='black';
+            bcolor2.style.color='rgb(24, 19, 19)';
+            bcolor3.style.color='black';
+            bcolor4.style.color='black';
+            bcolor5.style.color='black';
+            bcolor6.style.color='black';break;
+            case 3:top_portion.style.backgroundColor='rgb(88, 2, 2)';title.style.backgroundColor="rgb(88, 2, 2)";guard_left.style.backgroundColor='rgb(88, 2, 2)';guard_right.style.backgroundColor='rgb(88, 2, 2)'; bcolor1.style.color='black';
+            bcolor2.style.color='black';
+            bcolor3.style.color='rgb(88, 2, 2)';
+            bcolor4.style.color='black';
+            bcolor5.style.color='black';
+            bcolor6.style.color='black';
+            break;
+            case 4:top_portion.style.backgroundColor='rgb(214, 211, 211)';title.style.backgroundColor="rgb(214, 211, 211)";guard_left.style.backgroundColor='rgb(214, 211, 211)';guard_right.style.backgroundColor='rgb(214, 211, 211)';
+            bcolor1.style.color='black';
+            bcolor2.style.color='black';
+            bcolor3.style.color='black';
+            bcolor4.style.color='rgb(214, 211, 211)';
+            bcolor5.style.color='black';
+            bcolor6.style.color='black';
+            break;
+            case 5:top_portion.style.backgroundColor='rgb(31, 2, 31)';title.style.backgroundColor="rgb(31, 2, 31)";guard_left.style.backgroundColor='rgb(31, 2, 31)';guard_right.style.backgroundColor='rgb(31, 2, 31)';bcolor1.style.color='black';
+            bcolor2.style.color='black';
+            bcolor3.style.color='black';
+            bcolor4.style.color='black';
+            bcolor5.style.color='rgb(31, 2, 31)';
+            bcolor6.style.color='black';
+            break;
+            case 6:top_portion.style.backgroundColor='rgb(4, 4, 32)';title.style.backgroundColor="rgb(4, 4, 32)";guard_left.style.backgroundColor='rgb(4, 4, 32)';guard_right.style.backgroundColor='rgb(4, 4, 32)'; bcolor1.style.color='black';
+            bcolor2.style.color='black';
+            bcolor3.style.color='black';
+            bcolor4.style.color='black';
+            bcolor5.style.color='black';
+            bcolor6.style.color='rgb(4, 4, 32)';
+        break;
+        }
+    }
+    let keyVariable;
+    let play=(keyVariable)=>
+    {
+        switch(keyVariable)
+        {
+           case 1:audio1 = new Audio('audio/key1.mp3');
+         audio1.play();
+         note.innerHTML='F';break;
+         case 2:audio2 = new Audio('audio/key2.mp3');
+         audio2.play();
+         note.innerHTML='G';break;
+         case 3:audio3 = new Audio('audio/key3.mp3');
+         audio3.play();
+         note.innerHTML='A';break;
+         case 4:audio4 = new Audio('audio/key4.mp3');
+         audio4.play();
+         note.innerHTML='B';break;
+         case 5:audio5 = new Audio('audio/key5.mp3');
+         audio5.play();
+         note.innerHTML='C';break;
+         case 6:audio6 = new Audio('audio/key6.mp3');
+         audio6.play();
+         note.innerHTML='D';break;
+         case 7:audio7 = new Audio('audio/key7.mp3');
+         audio7.play();
+         note.innerHTML='E';break;
+         case 8:audio8 = new Audio('audio/key8.mp3');
+         audio8.play();
+         note.innerHTML='F';break;
+         case 9:audio9 = new Audio('audio/key9.mp3');
+         audio9.play();
+         note.innerHTML='G';break;
+         case 10:audio10 = new Audio('audio/key10.mp3');
+         audio10.play();
+         note.innerHTML='A';break;
+         case 11:audio11 = new Audio('audio/key11.mp3');
+         audio11.play();
+         note.innerHTML='B';break;
+         case 12:audio12 = new Audio('audio/key12.mp3');
+         audio12.play();
+         note.innerHTML='C';break;
+         case 13:audio13 = new Audio('audio/key13.mp3');
+         audio13.play();
+         note.innerHTML='D';break;
+         case 14:audio14 = new Audio('audio/key14.mp3');
+         audio14.play();
+         note.innerHTML='E';break;
+         case 15:audio15 = new Audio('audio/key15.mp3');
+         audio15.play();
+         note.innerHTML='F';break;
+         case 16:audio16 = new Audio('audio/key16.mp3');
+         audio16.play();
+         note.innerHTML='G';break;
+         case 17:audio17 = new Audio('audio/key17.mp3');
+         audio17.play();
+         note.innerHTML='A';break;
+         case 18:audio18 = new Audio('audio/key18.mp3');
+         audio18.play();
+         note.innerHTML='B';break;
+         case 19:audio19 = new Audio('audio/key19.mp3');
+         audio19.play();
+         note.innerHTML='D';break;
+         case 20:audio20 = new Audio('audio/key20.mp3');
+         audio20.play();
+         note.innerHTML='E';break;
+         case 21:audio21 = new Audio('audio/key21.mp3');
+         audio21.play();
+         note.innerHTML='F';break;
+         case 22:audio22 = new Audio('audio/key22.mp3');
+         audio22.play();
+         note.innerHTML='G';break;
+         case 23:audio23 = new Audio('audio/key23.mp3');
+         audio23.play();
+         note.innerHTML='A';break;
+         case 24:audio24 = new Audio('audio/key24.mp3');
+         audio24.play();
+         note.innerHTML='B';break;
+         case 25:audio25 = new Audio('audio/key25.mp3');
+         audio25.play();
+         note.innerHTML='C';break;
+         case 26:audio26 = new Audio('audio/key26.mp3');
+         audio26.play();
+         note.innerHTML='D';break;
+         case 27:audio27 = new Audio('audio/bkey1.mp3');
+         audio27.play();
+         note.innerHTML='F#';break;
+         case 28:audio28 = new Audio('audio/bkey2.mp3');
+         audio28.play();
+         note.innerHTML='G#';break;
+         case 29:audio29 = new Audio('audio/bkey3.mp3');
+         audio29.play();
+         note.innerHTML='A#';break;
+         case 30:audio30 = new Audio('audio/bkey4.mp3');
+         audio30.play();
+         note.innerHTML='C#';break;
+         case 31:audio31 = new Audio('audio/bkey5.mp3');
+         audio31.play();
+         note.innerHTML='D#';break;
+         case 32:audio32 = new Audio('audio/bkey6.mp3');
+         audio32.play();
+         note.innerHTML='F#';break;
+         case 33:audio33 = new Audio('audio/bkey7.mp3');
+         audio33.play();
+         note.innerHTML='G#';break;
+         case 34:audio34 = new Audio('audio/bkey8.mp3');
+         audio34.play();
+         note.innerHTML='A#';break;
+         case 35:audio35 = new Audio('audio/bkey9.mp3');
+         audio35.play();
+         note.innerHTML='C#';break;
+         case 36:audio36 = new Audio('audio/bkey10.mp3');
+         audio36.play();
+         note.innerHTML='D#';break;
+         case 37:audio37 = new Audio('audio/bkey11.mp3');
+         audio37.play();
+         note.innerHTML='F#';break;
+         case 38:audio38 = new Audio('audio/bkey12.mp3');
+         audio38.play();
+         note.innerHTML='G#';break;
+         case 39:audio39 = new Audio('audio/bkey13.mp3');
+         audio39.play();
+         note.innerHTML='A#';break;
+         case 40:audio40 = new Audio('audio/bkey14.mp3');
+         audio40.play();
+         note.innerHTML='C#';break;
+         case 41:audio41 = new Audio('audio/bkey15.mp3');
+         audio41.play();
+         note.innerHTML='D#';break;
+         case 42:audio42 = new Audio('audio/bkey16.mp3');
+         audio42.play();
+         note.innerHTML='F#';break;
+         case 43:audio43 = new Audio('audio/bkey17.mp3');
+         audio43.play();
+         note.innerHTML='G#';break;
+         case 44:audio44 = new Audio('audio/bkey18.mp3');
+         audio44.play();
+         note.innerHTML='A#';break;
+        }
+    }
+</script>
+</html>
