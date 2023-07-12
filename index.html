@@ -6,7 +6,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="piano.css">
     <script>
-        // Array to store audio file paths
         var audioFiles = [
           'audio/key1.mp3',
           'audio/key2.mp3',
@@ -53,16 +52,12 @@
           'audio/bkey17.mp3',
           'audio/bkey18.mp3',
         ];
-    
-        // Function to preload audio files
         function preloadAudioFiles() {
           for (var i = 0; i < audioFiles.length; i++) {
             var audio = new Audio();
             audio.src = audioFiles[i];
           }
         }
-    
-        // Preload audio files when the page loads
         window.addEventListener('load', preloadAudioFiles);
       </script>
 </head>
